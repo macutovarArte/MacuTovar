@@ -3,63 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macu Tovar- Acuarelas</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Fuente elegante de Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <title>Macu Tovar - Acuarelista</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Macu Tovar</h1>
+            <ul class="nav-links">
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <header>
-        <h1>Macu Tovar</h1>
-        <p>Acuarelas</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Mis Acuarelas</h2>
+            <p>Explora mi colección de obras artísticas</p>
+        </div>
+    </section>
+
+    <!-- Galería con Filtros -->
+    <section id="galeria" class="galeria">
+        <div class="container">
+            <h2>Galería</h2>
+            
+            <!-- Botones de Filtro -->
+            <div class="filtros">
+                <button class="filtro-btn activo" data-filtro="todos">Todos</button>
+                <button class="filtro-btn" data-filtro="paisaje">Paisaje</button>
+                <button class="filtro-btn" data-filtro="urbano">Urbano</button>
+            </div>
+
+            <!-- Grid de Obras -->
+            <div class="obras-grid" id="obras-grid">
+                <!-- Las obras se cargarán aquí con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi" class="sobre-mi">
+        <div class="container">
+            <div class="contenido-sobre-mi">
+                <div class="foto-seccion">
+                    <div class="foto-placeholder">
+                        <!-- Aquí puedes agregar tu foto -->
+                        <img src="IMG_20260517_181539.jpg" alt="Macu Tovar">
+                    </div>
+                </div>
+                <div class="texto-seccion">
+                    <h2>Sobre Mí</h2>
+                    <p>¡Hola! Soy Macu Tovar, una acuarelista apasionada por capturar la belleza del mundo a través del color y la luz.</p>
+                    <p>Mi trabajo se enfoca en paisajes naturales y escenas urbanas, buscando transmitir emociones y momentos especiales mediante técnicas de acuarela tradicionales.</p>
+                    <p>Cada obra es una aventura única donde exploro la interacción del agua, pigmento y papel para crear composiciones que inspiren y cautiven.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="contacto">
+        <div class="container">
+            <h2>Contacto</h2>
+            <p>¿Te interesa alguna de mis obras? Déjame un mensaje</p>
+            
+            <form class="formulario-contacto" id="formulario-contacto">
+                <div class="form-grupo">
+                    <input type="text" placeholder="Tu Nombre" required>
+                </div>
+                <div class="form-grupo">
+                    <input type="email" placeholder="Tu Email" required>
+                </div>
+                <div class="form-grupo">
+                    <textarea placeholder="Tu Mensaje" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+            </form>
+
+            <!-- Enlaces de Redes Sociales -->
+            <div class="redes-sociales">
+                <a href="mailto:macutovar.arte@gmail.com" class="red-social">📧 Email</a>
+                <a href="https://instagram.com/macutovar.arte" class="red-social">📸 Instagram</a>
         
-        <!-- Botones para filtrar por temática -->
-        <div class="menu-filtros">
-            <button class="btn-filtro activo" onclick="filtrar('todas')">Todas</button>
-            <button class="btn-filtro" onclick="filtrar('marinas')">Marinas</button>
-            <button class="btn-filtro" onclick="filtrar('paisajes')">Paisajes Urbanos</button>
-            <button class="btn-filtro" onclick="filtrar('botanica')">Botánica</button>
+            </div>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <!-- Galería de Acuarelas -->
-        <div class="galeria">
-
-            <!-- Obra 1: Marina -->
-            <div class="obra" data-categoria="marinas">
-                <img src="IMG_20260517_181539.jpg" alt="Acuarela de un faro">
-                <div class="info-obra">
-                    <h3>El Faro</h3>
-                    <p>Acuarela sobre papel Arches, 30x40cm</p>
-                </div>
-            </div>
-
-            <!-- Obra 2: Paisaje Urbano -->
-            <div class="obra" data-categoria="paisajes">
-                <img src="ruta-a-tu-imagen-2.jpg" alt="Acuarela de calle">
-                <div class="info-obra">
-                    <h3>Atardecer en la ciudad</h3>
-                    <p>Acuarela, 50x70cm</p>
-                </div>
-            </div>
-
-            <!-- Obra 3: Botánica -->
-            <div class="obra" data-categoria="botanica">
-                <img src="ruta-a-tu-imagen-3.jpg" alt="Acuarela de flores">
-                <div class="info-obra">
-                    <h3>Rosas de primavera</h3>
-                    <p>Acuarela, 20x20cm</p>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
+    <!-- Footer -->
     <footer>
-        <p>© 2026 Tu Nombre. Todos los derechos reservados.</p>
-        <p><a href="mailto:macutovar.arte@gmail.com">Contacto: macutovar.arte@gmail.com</a></p>
+        <div class="container">
+            <p>&copy; 2026 Macu Tovar. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
