@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macu Tovar- Acuarelas</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuente elegante de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Macu Tovar</h1>
+        <p>Acuarelas</p>
+        
+        <!-- Botones para filtrar por temática -->
+        <div class="menu-filtros">
+            <button class="btn-filtro activo" onclick="filtrar('todas')">Todas</button>
+            <button class="btn-filtro" onclick="filtrar('marinas')">Marinas</button>
+            <button class="btn-filtro" onclick="filtrar('paisajes')">Paisajes Urbanos</button>
+            <button class="btn-filtro" onclick="filtrar('botanica')">Botánica</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Galería de Acuarelas -->
+        <div class="galeria">
+
+            <!-- Obra 1: Marina -->
+            <div class="obra" data-categoria="marinas">
+                <img src="ruta-a-tu-imagen-1.jpg" alt="Acuarela de un faro">
+                <div class="info-obra">
+                    <h3>El Faro</h3>
+                    <p>Acuarela sobre papel Arches, 30x40cm</p>
+                </div>
+            </div>
+
+            <!-- Obra 2: Paisaje Urbano -->
+            <div class="obra" data-categoria="paisajes">
+                <img src="ruta-a-tu-imagen-2.jpg" alt="Acuarela de calle">
+                <div class="info-obra">
+                    <h3>Atardecer en la ciudad</h3>
+                    <p>Acuarela, 50x70cm</p>
+                </div>
+            </div>
+
+            <!-- Obra 3: Botánica -->
+            <div class="obra" data-categoria="botanica">
+                <img src="ruta-a-tu-imagen-3.jpg" alt="Acuarela de flores">
+                <div class="info-obra">
+                    <h3>Rosas de primavera</h3>
+                    <p>Acuarela, 20x20cm</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Tu Nombre. Todos los derechos reservados.</p>
+        <p><a href="mailto:tuemail@ejemplo.com">Contacto: tuemail@ejemplo.com</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
