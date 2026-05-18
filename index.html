@@ -3,104 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macu Tovar - Acuarelista</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Macu Tovar — Acuarelista</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Great+Vibes&family=Alex+Brush&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+     <!-- CSS externo -->
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    <!-- Navegación -->
-    <nav class="navbar">
-        <div class="container">
-            <h1 class="logo">Macu Tovar</h1>
-            <ul class="nav-links">
-                <li><a href="#galeria">Galería</a></li>
-                <li><a href="#sobre-mi">Sobre Mí</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+
+<!-- NAV -->
+<nav>
+    <a href="#inicio" class="nav-logo">Macu Tovar</a>
+    <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
+    <a href="#sobre-mi" onclick="closeMobileMenu()">Sobre mí</a>
+    <a href="#proyectos" onclick="closeMobileMenu()">Proyectos</a>
+    <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section id="inicio">
+    <div class="hero-image-side">
+        <img class="hero-img" src="imagenes/MacuTovar.jpeg" alt="Macu Tovar Acuarelista">
+        <div class="hero-image-overlay"></div>
+    </div>
+    <div class="hero-content">
+        <div class="hero-heading">
+            <span class="script"><span class="letra-a">A</span>cuarelista</span>
+            <span class="serif">Macu Tovar</span>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h2>Mis Acuarelas</h2>
-            <p>Explora mi colección de obras artísticas</p>
+        <p class="hero-desc">
+            Artista especializada en acuarela. Cada pincelada nace de la emoción y se convierte en color, luz y silencio sobre el papel.
+        </p>
+        <a href="#proyectos" class="hero-cta">Ver proyectos</a>
+        <div class="hero-social">
+            <a href="https://www.instagram.com/macutovar.arte/">Instagram</a>
+            <!-- <a href="#">Pinterest</a> -->
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Galería con Filtros -->
-    <section id="galeria" class="galeria">
-        <div class="container">
-            <h2>Galería</h2>
-            
-            <!-- Botones de Filtro -->
-            <div class="filtros">
-                <button class="filtro-btn activo" data-filtro="todos">Todos</button>
-                <button class="filtro-btn" data-filtro="paisaje">Paisaje</button>
-                <button class="filtro-btn" data-filtro="urbano">Urbano</button>
-            </div>
-
-            <!-- Grid de Obras -->
-            <div class="obras-grid" id="obras-grid">
-                <!-- Las obras se cargarán aquí con JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Sobre Mí -->
-    <section id="sobre-mi" class="sobre-mi">
-        <div class="container">
-            <div class="contenido-sobre-mi">
-                <div class="foto-seccion">
-                    <div class="foto-placeholder">
-                        <!-- Aquí puedes agregar tu foto -->
-                        <img src="https://via.placeholder.com/300" alt="Macu Tovar">
+<!-- SOBRE MÍ -->
+<section id="sobre-mi">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <span class="section-tag">Sobre mí</span>
+                <h2 class="section-title">El arte como<br><em>lenguaje propio</em></h2>
+                <div class="divider"></div>
+                <p>
+                   Soy <strong>Macu Tovar</strong>, acuarelista en pleno poceso evolutivo. Mi trabajo nace de la observación del entorno urbano y de la naturaleza, busco capturar lo que nos pasa desapercibido en nuestra cotidianidad intentado darle su belleza.
+                </p>
+                <p>
+                    La acuarela me permite trabajar con la <strong>transparencia, cuidando siempre un apecto de limpieza en pinceladas</strong>, lo que es todo un reto ya que el agua es dificil de dominar en la acuarela.
+                </p>                
+                <div class="about-stats">
+                    <div class="stat">
+                        <div class="stat-number">+80</div>
+                        <div class="stat-label">Obras realizadas</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Años de experiencia</div>
+                    </div>                    
+                    <div class="stat">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Exposiciones</div>
                     </div>
                 </div>
-                <div class="texto-seccion">
-                    <h2>Sobre Mí</h2>
-                    <p>¡Hola! Soy Macu Tovar, una acuarelista apasionada por capturar la belleza del mundo a través del color y la luz.</p>
-                    <p>Mi trabajo se enfoca en paisajes naturales y escenas urbanas, buscando transmitir emociones y momentos especiales mediante técnicas de acuarela tradicionales.</p>
-                    <p>Cada obra es una aventura única donde exploro la interacción del agua, pigmento y papel para crear composiciones que inspiren y cautiven.</p>
-                </div>
+            </div>
+            <div class="about-image-wrap reveal">
+               <img class="about-img" src="imagenes/nadadora.jpg" alt="Nadando">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Sección Contacto -->
-    <section id="contacto" class="contacto">
-        <div class="container">
-            <h2>Contacto</h2>
-            <p>¿Te interesa alguna de mis obras? Déjame un mensaje</p>
-            
-            <form class="formulario-contacto" id="formulario-contacto">
-                <div class="form-grupo">
-                    <input type="text" placeholder="Tu Nombre" required>
-                </div>
-                <div class="form-grupo">
-                    <input type="email" placeholder="Tu Email" required>
-                </div>
-                <div class="form-grupo">
-                    <textarea placeholder="Tu Mensaje" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn-enviar">Enviar Mensaje</button>
-            </form>
-
-            <!-- Enlaces de Redes Sociales -->
-            <div class="redes-sociales">
-                <a href="mailto:tu-email@ejemplo.com" class="red-social">📧 Email</a>
-                <a href="https://instagram.com/macutovar" class="red-social">📸 Instagram</a>
-                <a href="https://www.linkedin.com/in/macutovar" class="red-social">💼 LinkedIn</a>
+<!-- PROYECTOS -->
+<section id="proyectos">
+    <div class="container">
+        <div class="projects-header reveal">
+            <div>
+                <span class="section-tag">Proyectos</span>
+                <h2 class="section-title">Obras<br><em>recientes</em></h2>
+                <div class="divider"></div>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Macu Tovar. Todos los derechos reservados.</p>
+        <div class="projects-grid">
+
+            <div class="project-card reveal">
+                <div class="project-img-wrap">
+                    <img class="project-img" src="imagenes/Edificios/TemploDebot.jpg" alt="Madrid">
+                    <div class="project-overlay"><span class="project-overlay-text">Ver obra</span></div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Templo Debot</h3>
+                    <span class="project-tag">Acuarela · 2026</span>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-img-wrap">
+                    <img class="project-img" src="imagenes/Edificios/Cementerio.jpg" alt="O Grobe">
+                    <div class="project-overlay"><span class="project-overlay-text">Ver obra</span></div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Cementerio</h3>
+                    <span class="project-tag">Acuarela · 2026</span>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-img-wrap">
+                    <img class="project-img" src="imagenes/Edificios/ConcelloBueu.jpg" alt="O Grobe">
+                    <div class="project-overlay"><span class="project-overlay-text">Ver obra</span></div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Concello Bueu</h3>
+                    <span class="project-tag">Acuarela · 2026</span>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-img-wrap">
+                    <img class="project-img" src="imagenes/Edificios/CasaAbuela.jpg" alt="Marin">
+                    <div class="project-overlay"><span class="project-overlay-text">Ver obra</span></div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Casa de la Abuela</h3>
+                    <span class="project-tag">Acuarela · 2025</span>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-img-wrap">
+                    <img class="project-img" src="imagenes/Edificios/CabezaDorada.jpg" alt="Marin">
+                    <div class="project-overlay"><span class="project-overlay-text">Ver obra</span></div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Cabecita dorada</h3>
+                    <span class="project-tag">Acuarela · 2025</span>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-img-wrap">
+                    <img class="project-img" src="imagenes/Edificios/RuralPoio.jpg" alt="Poio">
+                    <div class="project-overlay"><span class="project-overlay-text">Ver obra</span></div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Casa en rural</h3>
+                    <span class="project-tag">Acuarela · 2025</span>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-img-wrap">
+                    <img class="project-img" src="imagenes/Edificios/Beasada.jpg" alt="Pazo Besada">
+                    <div class="project-overlay"><span class="project-overlay-text">Ver obra</span></div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Pazo besada</h3>
+                    <span class="project-tag">Acuarela · 2025</span>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-img-wrap">
+                    <img class="project-img" src="imagenes/Paisajes/Covelo.jpg" alt="Covelo">
+                    <div class="project-overlay"><span class="project-overlay-text">Ver obra</span></div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Covelo</h3>
+                    <span class="project-tag">Acuarela · 2026</span>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-img-wrap">
+                    <img class="project-img" src="imagenes/Paisajes/Aldan.jpg" alt="Cangas">
+                    <div class="project-overlay"><span class="project-overlay-text">Ver obra</span></div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Aldán</h3>
+                    <span class="project-tag">Acuarela · 2026</span>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-img-wrap">
+                    <img class="project-img" src="imagenes/Paisajes/Arosa.jpg" alt="O Grobe">
+                    <div class="project-overlay"><span class="project-overlay-text">Ver obra</span></div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Arosa</h3>
+                    <span class="project-tag">Acuarela · 2026</span>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-img-wrap">
+                    <img class="project-img" src="imagenes/Paisajes/Lagos.jpg" alt="Bueu">
+                    <div class="project-overlay"><span class="project-overlay-text">Ver obra</span></div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Lagos</h3>
+                    <span class="project-tag">Acuarela · 2026</span>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-img-wrap">
+                    <img class="project-img" src="imagenes/Paisajes/Jerte.jpg" alt="El Jerte">
+                    <div class="project-overlay"><span class="project-overlay-text">Ver obra</span></div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">El Jerte</h3>
+                    <span class="project-tag">Acuarela · 2025</span>
+                </div>
+            </div>
+
+        </div><!-- fin projects-grid -->
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="reveal">
+                <span class="section-tag">Contacto</span>
+                <h2 class="section-title">Hablemos<br><em>de arte</em></h2>
+                <div class="divider"></div>
+                <p class="contact-desc">
+                    Si estás interesada en adquirir una obra, organizar un taller o simplemente quieres conocer más sobre mi trabajo, escríbeme. Estaré encantada de responderte.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:macutovar.arte@gmail.com" class="contact-link">
+                        <span class="contact-link-icon"></span>
+                        hola@macutovar.com
+                    </a>
+                    <a href="https://instagram.com/macutovar.arte/" target="_blank" class="contact-link">
+                        <span class="contact-link-icon"></span>
+                        @macutovar
+                    </a>
+                </div>
+            </div>
+            <div class="reveal">
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="tu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Mensaje</label>
+                        <textarea rows="4" placeholder="Cuéntame..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-send">Enviar mensaje</button>
+                </form>
+            </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script src="script.js"></script>
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Macu Tovar. Todos los derechos reservados.</p>
+    <a href="#inicio" class="footer-back">↑ Volver arriba</a>
+</footer>
+
+<!-- JS externo -->
+    <script src="index.js"></script>
 </body>
 </html>
