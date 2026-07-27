@@ -14,17 +14,19 @@ const imageGroups = {
     ],
     paisajes: [
         "imagenes/Paisajes/Dorna.jpeg",
-        "imagenes/Paisajes/Covelo.jpg",
         "imagenes/Paisajes/Aldan.jpg",
+        "imagenes/Paisajes/Brokoa.jpeg",
+        "imagenes/Paisajes/Covelo.jpg",        
         "imagenes/Paisajes/Arosa.jpg",
         "imagenes/Paisajes/Lagos.jpg",
         "imagenes/Paisajes/Jerte.jpg",
-        "imagenes/Paisajes/PlayaCabeceira.jpeg",
-        "imagenes/Paisajes/RefugioStellaAlpina.jpeg",
-        "imagenes/Paisajes/PaisajeNevado.jpg",
-        "imagenes/Paisajes/Brokoa.jpeg",
+        "imagenes/Paisajes/Combarro.jpeg",
+        "imagenes/Paisajes/PlayaCabeceira.jpeg",      
         "imagenes/Paisajes/PuenteBarca.jpeg",
         "imagenes/Paisajes/RuaViñas.jpeg",
+        "imagenes/Paisajes/PaisajeNevado.jpeg",  
+        "imagenes/Paisajes/RefugioStellaAlpina.jpeg"           
+        
 
     ]
 };
