@@ -1,15 +1,13 @@
  // ── GRUPOS DE IMÁGENES ──
 const imageGroups = {
     edificios: [
+        "imagenes/Edificios/Beasada.jpg",        
+        "imagenes/Edificios/CasaAbuela.jpg",        
+        "imagenes/Edificios/CabezaDorada.jpg",        
+        "imagenes/Edificios/RuralPoio.jpg",
         "imagenes/Edificios/TemploDebot.jpg",
         "imagenes/Edificios/Cementerio.jpg",
-        "imagenes/Edificios/ConcelloBueu.jpg",
-        "imagenes/Edificios/CasaAbuela.jpg",
-        "imagenes/Edificios/CabezaDorada.jpg",
-        "imagenes/Edificios/RuralPoio.jpg",
-        "imagenes/Edificios/Beasada.jpg",
-        "imagenes/Edificios/RefugioStellaAlpina.jpeg",
-        "imagenes/Edificios/EdificioRural.jpg"
+        "imagenes/Edificios/ConcelloBueu.jpg", 
 
     ],
     paisajes: [
