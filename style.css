@@ -850,6 +850,20 @@
     color: var(--bg);
     border-color: rgba(233, 209, 209, 0.5);
 }
+.sold-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--text);
+    color: var(--bg);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.8rem;
+    z-index: 2;
+}
 
 @media (max-width: 560px) {
     .lightbox-prev { left: 0.5rem; }

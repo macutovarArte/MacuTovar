@@ -1,3 +1,41 @@
+ // ── GRUPOS DE IMÁGENES ──
+const imageGroups = {
+    edificios: [
+        "imagenes/Edificios/TemploDebot.jpg",
+        "imagenes/Edificios/Cementerio.jpg",
+        "imagenes/Edificios/ConcelloBueu.jpg",
+        "imagenes/Edificios/CasaAbuela.jpg",
+        "imagenes/Edificios/CabezaDorada.jpg",
+        "imagenes/Edificios/RuralPoio.jpg",
+        "imagenes/Edificios/Beasada.jpg",
+        "imagenes/Edificios/RefugioStellaAlpina.jpeg",
+        "imagenes/Edificios/EdificioRural.jpg"
+
+    ],
+    paisajes: [
+        "imagenes/Paisajes/Dorna.jpeg",
+        "imagenes/Paisajes/Covelo.jpg",
+        "imagenes/Paisajes/Aldan.jpg",
+        "imagenes/Paisajes/Arosa.jpg",
+        "imagenes/Paisajes/Lagos.jpg",
+        "imagenes/Paisajes/Jerte.jpg",
+        "imagenes/Paisajes/PlayaCabeceira.jpeg",
+        "imagenes/Paisajes/RefugioStellaAlpina.jpeg",
+        "imagenes/Paisajes/PaisajeNevado.jpg",
+        "imagenes/Paisajes/Brokoa.jpeg",
+        "imagenes/Paisajes/PuenteBarca.jpeg",
+        "imagenes/Paisajes/RuaViñas.jpeg",
+
+    ]
+};
+
+// Asignar automáticamente el array a cada tarjeta según su data-group
+document.querySelectorAll('.project-card').forEach(card => {
+    const group = card.dataset.group;
+    if (group && imageGroups[group]) {
+        card.dataset.images = JSON.stringify(imageGroups[group]);
+    }
+});
  // Hamburger menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
