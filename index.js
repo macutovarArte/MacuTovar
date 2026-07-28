@@ -5,7 +5,7 @@ const imageGroups = {
         "imagenes/Edificios/CasaAbuela.jpg",        
         "imagenes/Edificios/CabezaDorada.jpg",        
         "imagenes/Edificios/RuralPoio.jpg",
-        "imagenes/Edificios/TemploDebot.jpg",
+        "imagenes/Edificios/TemploDebod.jpg",
         "imagenes/Edificios/Cementerio.jpg",
         "imagenes/Edificios/ConcelloBueu.jpg", 
 
@@ -94,13 +94,17 @@ const lightboxCounter = document.getElementById('lightboxCounter');
 
 let currentImages = [];
 let currentIndex  = 0;
-
-function openLightbox(images, index, caption) {
+function openLightbox(images, index, caption, card) {
     currentImages = images;
-    currentIndex  = index;
+    currentIndex = index;
+
+    const group = card.dataset.group;
+    currentCards = [...document.querySelectorAll(`.project-card[data-group="${group}"]`)];
+
     lightboxImg.src = currentImages[currentIndex];
     lightboxCaption.textContent = caption || '';
-    lightboxCounter.textContent = (currentIndex + 1) + ' / ' + currentImages.length;
+    lightboxCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
 }
@@ -113,14 +117,22 @@ function closeLightbox() {
 
 function showPrev() {
     currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+
     lightboxImg.src = currentImages[currentIndex];
-    lightboxCounter.textContent = (currentIndex + 1) + ' / ' + currentImages.length;
+    lightboxCaption.textContent =
+        currentCards[currentIndex].querySelector('.project-title').textContent;
+
+    lightboxCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
 }
 
 function showNext() {
     currentIndex = (currentIndex + 1) % currentImages.length;
+
     lightboxImg.src = currentImages[currentIndex];
-    lightboxCounter.textContent = (currentIndex + 1) + ' / ' + currentImages.length;
+    lightboxCaption.textContent =
+        currentCards[currentIndex].querySelector('.project-title').textContent;
+
+    lightboxCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
 }
 
 // Abrir al hacer clic en "Ver obra"
@@ -130,7 +142,7 @@ document.querySelectorAll('.project-card').forEach(card => {
         const images  = JSON.parse(card.dataset.images);
         const index   = parseInt(card.dataset.index) || 0;
         const caption = card.querySelector('.project-title').textContent;
-        openLightbox(images, index, caption);
+        openLightbox(images, index, caption,card);
     });
 });
 

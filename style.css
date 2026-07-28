@@ -864,6 +864,28 @@
     padding: 0.35rem 0.8rem;
     z-index: 2;
 }
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+.contact-link i,
+.contact-link span {
+    display: inline-block;
+}
+
+.contact-link-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+.instagram-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+.contact-link:hover .instagram-icon {
+    transform: scale(1.15);
+}
 
 @media (max-width: 560px) {
     .lightbox-prev { left: 0.5rem; }
