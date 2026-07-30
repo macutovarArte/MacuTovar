@@ -23,7 +23,8 @@ const imageGroups = {
         "imagenes/Paisajes/PuenteBarca.jpeg",
         "imagenes/Paisajes/RuaViñas.jpeg",
         "imagenes/Paisajes/PaisajeNevado.jpeg",  
-        "imagenes/Paisajes/RefugioStellaAlpina.jpeg"           
+        "imagenes/Paisajes/RefugioStellaAlpina.jpeg",
+        "imagenes/Paisajes/FaroLariño.jpeg"           
         
 
     ]
