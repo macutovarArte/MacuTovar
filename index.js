@@ -11,6 +11,7 @@ const imageGroups = {
 
     ],
     paisajes: [
+        "imagenes/Paisajes/LLautCarril.jpeg",
         "imagenes/Paisajes/Dorna.jpeg",
         "imagenes/Paisajes/Aldan.jpg",
         "imagenes/Paisajes/Brokoa.jpeg",
