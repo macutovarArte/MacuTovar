@@ -8,6 +8,8 @@ const imageGroups = {
         "imagenes/Edificios/TemploDebod.jpg",
         "imagenes/Edificios/Cementerio.jpg",
         "imagenes/Edificios/ConcelloBueu.jpg", 
+        "imagenes/Edificios/Pasanteria.jpeg", 
+
 
     ],
     paisajes: [
@@ -163,4 +165,28 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft')  showPrev();
     if (e.key === 'ArrowRight') showNext();
     if (e.key === 'Escape')     closeLightbox();
+});
+//para abrir/cerrar el modal
+document.querySelectorAll('.project-video-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const videoId = this.dataset.video;
+        const modal = document.getElementById('videoModal');
+        document.getElementById('videoModalIframe').src = 
+    `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        modal.style.display = 'flex';
+    });
+});
+
+document.getElementById('videoModalClose').addEventListener('click', () => {
+    document.getElementById('videoModal').style.display = 'none';
+    document.getElementById('videoModalIframe').src = '';
+});
+
+// Cerrar al hacer clic fuera
+document.getElementById('videoModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        this.style.display = 'none';
+        document.getElementById('videoModalIframe').src = '';
+    }
 });

@@ -886,6 +886,18 @@
 .contact-link:hover .instagram-icon {
     transform: scale(1.15);
 }
+.project-video-btn {
+    display: block;
+    margin-top: 8px;
+    color: var(--light);
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: underline;
+}
+
+.project-video-btn:hover {
+    color: var(--accent);  /* #b07a7a, el rosa/terracota de tu paleta */
+}
 
 @media (max-width: 560px) {
     .lightbox-prev { left: 0.5rem; }
