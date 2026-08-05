@@ -50,6 +50,13 @@ document.querySelectorAll('.project-card').forEach(card => {
 
     function closeMobileMenu() {
         mobileMenu.classList.remove('open');
+        document.getElementById('retos').style.display = 'none';
+        document.getElementById('proyectos').style.display = 'block';
+    }
+     function closeMobileMenuReto() {
+       mobileMenu.classList.remove('open');
+       document.getElementById('retos').style.display = 'block';
+       document.getElementById('proyectos').style.display = 'none';
     }
 
     // Scroll reveal
@@ -189,4 +196,145 @@ document.getElementById('videoModal').addEventListener('click', function(e) {
         this.style.display = 'none';
         document.getElementById('videoModalIframe').src = '';
     }
+});
+// RETO DE AGOSTO
+const dias = [
+    { dia: 1, titulo: null, dimensiones: null, img: null },
+    { dia: 2, titulo: 'Lago Myvatn', dimensiones: '36 x 36 cm', img: 'imagenes/Reto/2.jpeg' }, 
+    { dia: 3, titulo: 'Río Firth', dimensiones: '26 x 37 cm', img: 'imagenes/Reto/3.jpeg' },
+    { dia: 4, titulo: 'Selatngar', dimensiones: '26 x 37 cm', img: 'imagenes/Reto/4.jpeg' },
+    { dia: 5, titulo: null, dimensiones: null, img: null },
+    { dia: 6, titulo: null, dimensiones: null, img: null },
+    { dia: 7, titulo: null, dimensiones: null, img: null },
+    { dia: 8, titulo: null, dimensiones: null, img: null },
+    { dia: 9, titulo: null, dimensiones: null, img: null },
+    { dia: 10, titulo: null, dimensiones: null, img: null },
+    { dia: 11, titulo: null, dimensiones: null, img: null },
+    { dia: 12, titulo: null, dimensiones: null, img: null },
+    { dia: 13, titulo: null, dimensiones: null, img: null },
+    { dia: 14, titulo: null, dimensiones: null, img: null },
+    { dia: 15, titulo: null, dimensiones: null, img: null },
+    { dia: 16, titulo: null, dimensiones: null, img: null },
+    { dia: 17, titulo: null, dimensiones: null, img: null },
+    { dia: 18, titulo: null, dimensiones: null, img: null },
+    { dia: 19, titulo: null, dimensiones: null, img: null },
+    { dia: 20, titulo: null, dimensiones: null, img: null },
+    { dia: 21, titulo: null, dimensiones: null, img: null },
+    { dia: 22, titulo: null, dimensiones: null, img: null },
+    { dia: 23, titulo: null, dimensiones: null, img: null },
+    { dia: 24, titulo: null, dimensiones: null, img: null },
+    { dia: 25, titulo: null, dimensiones: null, img: null },
+    { dia: 26, titulo: null, dimensiones: null, img: null },
+    { dia: 27, titulo: null, dimensiones: null, img: null },
+    { dia: 28, titulo: null, dimensiones: null, img: null },
+    { dia: 29, titulo: null, dimensiones: null, img: null },
+    { dia: 30, titulo: null, dimensiones: null, img: null },
+    { dia: 31, titulo: null, dimensiones: null, img: null }
+];
+
+const grid = document.querySelector('.reto-grid');
+if (grid) {
+    grid.innerHTML = dias.map((d, index) => {  // ← dias, no diasAgosto
+        if (!d.img) return `
+            <div class="reto-card vacio">
+                <div class="reto-dia-num">${d.dia}</div>
+                <div class="reto-placeholder"><span>✦</span></div>
+            </div>`;
+
+        return `
+            <div class="reto-card tiene-obra" 
+                 data-img="${d.img}" 
+                 data-titulo="${d.titulo}" 
+                 data-dimensiones="${d.dimensiones}"
+                 data-index="${index}">
+                <div class="reto-dia-num">${d.dia}</div>
+                <div class="reto-img-wrap">
+                    <img src="${d.img}" alt="Acuarela día ${d.dia}" loading="lazy">
+                </div>
+                <div class="reto-info">
+                    <span class="reto-titulo">${d.titulo}</span>
+                    <span class="reto-dimensiones">${d.dimensiones}</span>
+                </div>
+            </div>`;
+    }).join('');
+
+    document.querySelectorAll('.reto-card.tiene-obra .reto-img-wrap').forEach(wrap => {
+        wrap.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const card        = wrap.closest('.reto-card');
+            const img         = card.dataset.img;
+            const titulo      = card.dataset.titulo;
+            const dimensiones = card.dataset.dimensiones;
+            openRetoLightbox(img, titulo, dimensiones);
+        });
+    });
+}
+
+let retoImages = [];
+let retoIndex  = 0;
+
+function openRetoLightbox(img, titulo, dimensiones) {
+    // Construye el array con todas las obras que tienen imagen
+    retoImages = dias.filter(d => d.img);
+    // Encuentra el índice de la imagen clicada
+    retoIndex  = retoImages.findIndex(d => d.img === img);
+
+    mostrarRetoLightbox();
+    document.getElementById('retoLightbox').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function mostrarRetoLightbox() {
+    const d = retoImages[retoIndex];
+    document.getElementById('retoLightboxImg').src          = d.img;
+    document.getElementById('retoLightboxTitulo').textContent     = d.titulo;
+    document.getElementById('retoLightboxDimensiones').textContent = `${d.dimensiones} · Día ${d.dia}`;
+}
+
+function showPrevReto() {
+    retoIndex = (retoIndex - 1 + retoImages.length) % retoImages.length;
+    mostrarRetoLightbox();
+}
+
+function showNextReto() {
+    retoIndex = (retoIndex + 1) % retoImages.length;
+    mostrarRetoLightbox();
+}
+
+function closeRetoLightbox() {
+    document.getElementById('retoLightbox').style.display = 'none';
+    document.getElementById('retoLightboxImg').src = '';
+    document.body.style.overflow = '';
+}
+
+// Eventos botones prev/next
+document.getElementById('lightboxPrevRetos').addEventListener('click', showPrevReto);
+document.getElementById('lightboxNextRetos').addEventListener('click', showNextReto);
+
+// Cerrar al hacer clic fuera
+document.getElementById('retoLightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeRetoLightbox();
+});
+
+// Teclado
+document.addEventListener('keydown', (e) => {
+    if (document.getElementById('retoLightbox').style.display === 'flex') {
+        if (e.key === 'ArrowLeft')  showPrevReto();
+        if (e.key === 'ArrowRight') showNextReto();
+        if (e.key === 'Escape')     closeRetoLightbox();
+    }
+});
+
+// Estos eventos van dentro de DOMContentLoaded para asegurar que el lightbox existe
+document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('retoLightbox');
+    if (lightbox) {
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === this) closeRetoLightbox();
+        });
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeRetoLightbox();
 });

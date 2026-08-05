@@ -19,7 +19,8 @@
     <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#proyectos" onclick="closeMobileMenu()">Proyectos</a></li>
+        <li><a href="#retos" onclick="closeMobileMenuReto()">Retos</a></li> 
         <li><a href="#contacto">Contacto</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menú">
@@ -32,6 +33,7 @@
     <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
     <a href="#sobre-mi" onclick="closeMobileMenu()">Sobre mí</a>
     <a href="#proyectos" onclick="closeMobileMenu()">Proyectos</a>
+    <a href="#retos" onclick="closeMobileMenuReto()">Retos</a>  <!-- AÑADIDO -->
     <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
 </div>
 
@@ -412,6 +414,37 @@
         </div>
     </div>
 </div>
+</section>
+<!-- RETOS -->
+<!-- RETOS -->
+<section id="retos" class="section" style="display:none;">
+    <div class="container">
+        <h2 class="section-title">Retos</h2>
+        <div class="reto-mes">
+            <h3 class="reto-mes-titulo">Agosto 2026 · Pintando el agua con Vicente Art</h3>
+            <p class="reto-mes-descripcion">31 días, 31 acuarelas. Un reto para pintar cada día del mes.</p>
+            <div class="reto-grid">
+                <!-- Generado por JS -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LIGHTBOX RETOS (fuera de la section) -->
+<div id="retoLightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:9999; align-items:center; justify-content:center; flex-direction:column;">
+    <button onclick="closeRetoLightbox()" style="position:fixed; top:20px; right:24px; background:none; border:none; color:white; font-size:2rem; cursor:pointer; z-index:10000;">✕</button>
+    <button class="lightbox-prev" id="lightboxPrevRetos">&#8592;</button>
+    <button class="lightbox-next" id="lightboxNextRetos">&#8594;</button>
+    <img id="retoLightboxImg" src="" alt="" style="max-width:90vw; max-height:80vh; object-fit:contain; border-radius:6px; box-shadow:0 8px 40px rgba(0,0,0,0.5);">
+    <div style="margin-top:1rem; text-align:center;">
+        <p id="retoLightboxTitulo" style="color:var(--light); font-size:1rem; margin:0;"></p>
+        <p id="retoLightboxDimensiones" style="color:var(--muted); font-size:0.85rem; margin:4px 0 0;"></p>
+    </div>
+</div>
+
+<!-- CONTACTO -->
+<section id="contacto" class="section">
+   ...
 </section>
 
 <!-- CONTACTO -->
