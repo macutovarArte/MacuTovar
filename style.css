@@ -889,9 +889,9 @@
 .project-video-btn {
     display: block;
     margin-top: 8px;
-    color: var(--light);
+    color: var(--text);
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-decoration: underline;
 }
 
