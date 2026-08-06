@@ -48,16 +48,33 @@ document.querySelectorAll('.project-card').forEach(card => {
         mobileMenu.classList.toggle('open');
     });
 
-    function closeMobileMenu() {
-        mobileMenu.classList.remove('open');
-        document.getElementById('retos').style.display = 'none';
+    function openMobileMenu() {
+        mobileMenu.classList.remove('open');        
         document.getElementById('proyectos').style.display = 'block';
+        document.getElementById('retos').style.display = 'none';
+        document.getElementById('cuadros').style.display = 'none';
     }
-     function closeMobileMenuReto() {
-       mobileMenu.classList.remove('open');
-       document.getElementById('retos').style.display = 'block';
+     function openMobileMenuReto() {
+       mobileMenu.classList.remove('open');       
        document.getElementById('proyectos').style.display = 'none';
+       document.getElementById('retos').style.display = 'block';
+       document.getElementById('cuadros').style.display = 'none';
+       document.querySelectorAll('#retos .reveal').forEach(el => {
+        el.classList.add('visible');
+    });
     }
+
+   function openMobileMenuCuadros() {
+    mobileMenu.classList.remove('open');    
+    document.getElementById('proyectos').style.display = 'none';
+    document.getElementById('retos').style.display = 'none';
+    document.getElementById('cuadros').style.display = 'block';
+
+    // Fuerza la visibilidad de las cards reveal
+    document.querySelectorAll('#cuadros .reveal').forEach(el => {
+        el.classList.add('visible');
+    });
+}
 
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
@@ -200,10 +217,10 @@ document.getElementById('videoModal').addEventListener('click', function(e) {
 // RETO DE AGOSTO
 const dias = [
     { dia: 1, titulo: null, dimensiones: null, img: null },
-    { dia: 2, titulo: 'Lago Myvatn', dimensiones: '36 x 36 cm', img: 'imagenes/Reto/2.jpeg' }, 
-    { dia: 3, titulo: 'Río Firth', dimensiones: '26 x 37 cm', img: 'imagenes/Reto/3.jpeg' },
-    { dia: 4, titulo: 'Selatngar', dimensiones: '26 x 37 cm', img: 'imagenes/Reto/4.jpeg' },
-    { dia: 5, titulo: null, dimensiones: null, img: null },
+    { dia: 2, titulo: 'Lago Myvatn', dimensiones: '36 x 36 cm', img: 'imagenes/Reto/2.jpeg', tecnica: 'Acuarela sobre papel' }, 
+    { dia: 3, titulo: 'Río Firth', dimensiones: '26 x 37 cm', img: 'imagenes/Reto/3.jpeg', tecnica: 'Acuarela sobre papel' },
+    { dia: 4, titulo: 'Selatngar', dimensiones: '26 x 37 cm', img: 'imagenes/Reto/4.jpeg', tecnica: 'Acuarela sobre papel' },
+    { dia: 5, titulo: 'Norway', dimensiones: '26 x 31 cm', img: 'imagenes/Reto/5.jpeg', tecnica: 'Acuarela sobre papel' },
     { dia: 6, titulo: null, dimensiones: null, img: null },
     { dia: 7, titulo: null, dimensiones: null, img: null },
     { dia: 8, titulo: null, dimensiones: null, img: null },
@@ -254,6 +271,7 @@ if (grid) {
                 <div class="reto-info">
                     <span class="reto-titulo">${d.titulo}</span>
                     <span class="reto-dimensiones">${d.dimensiones}</span>
+                    <span class="reto-tecnica">${d.tecnica}</span>
                 </div>
             </div>`;
     }).join('');
@@ -337,4 +355,94 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeRetoLightbox();
+});
+//FIN DE RETOS///
+// CUADROS//////
+const cuadros = [
+    { titulo: 'Paseo por la Banda', dimensiones: '90 x 60 cm', img: 'imagenes/Cuadros/PaseoBanda.jpg', tecnica: 'Acrilico sobre lienzo'},
+    { titulo: 'Momento de desconexión', dimensiones: '60 x 90 cm', img: 'imagenes/Cuadros/MomentoDesconexion.jpg' ,tecnica: 'Acrilico sobre lienzo'},
+    { titulo: 'Rafa', dimensiones: '60 x 90 cm', img: 'imagenes/Cuadros/Rafa.jpg' ,tecnica: 'Acrilico sobre lienzo'},
+    { titulo: 'Nadadora', dimensiones: '120 x 60 cm', img: 'imagenes/Cuadros/NadandoBateas.jpeg' ,tecnica: 'Oleo sobre lienzo'},
+    { titulo: 'Callao', dimensiones: '90 x 60 cm', img: 'imagenes/Cuadros/Callao.jpg' ,tecnica: 'Acrilico sobre lienzo'},
+    { titulo: 'Viajar a Vietnam', dimensiones: '90 x 60 cm', img: 'imagenes/Cuadros/ViajeVietnam.jpeg' ,tecnica: 'Acrilico sobre lienzo'},
+    { titulo: 'Atardecer en Lagos', dimensiones: '90 x 60 cm', img: 'imagenes/Cuadros/Lagos.jpeg' ,tecnica: 'Acrilico sobre lienzo'},
+];
+
+let cuadroIndex = 0;
+
+// Genera el grid
+const cuadrosGrid = document.querySelector('.cuadros-grid');
+if (cuadrosGrid) {
+    cuadrosGrid.innerHTML = cuadros.map((c, index) => `
+        <div class="project-card reveal"
+             data-cuadro-index="${index}">
+            <div class="project-img-wrap">
+                <img class="project-img" src="${c.img}" alt="${c.titulo}" loading="lazy">
+                <div class="project-overlay"><span class="project-overlay-text">Ver obra</span></div>
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">${c.titulo}</h3>
+                <span class="project-tag">${c.dimensiones}</span>
+                <span class="project-tag">${c.tecnica}</span>
+            </div>
+        </div>
+    `).join('');
+
+    // Eventos después de generar el HTML
+    document.querySelectorAll('#cuadros .project-img-wrap').forEach(wrap => {
+        wrap.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const index = parseInt(wrap.closest('.project-card').dataset.cuadroIndex);
+            openCuadrosLightbox(index);
+        });
+    });
+}
+
+function openCuadrosLightbox(index) {
+    cuadroIndex = index;
+    mostrarCuadro();
+    document.getElementById('cuadrosLightbox').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function mostrarCuadro() {
+    const c = cuadros[cuadroIndex];
+    document.getElementById('cuadrosLightboxImg').src              = c.img;
+    document.getElementById('cuadrosLightboxTitulo').textContent   = c.titulo;
+    document.getElementById('cuadrosLightboxDimensiones').textContent = c.dimensiones;
+    document.getElementById('cuadrosLightboxCounter').textContent  = `${cuadroIndex + 1} / ${cuadros.length}`;
+}
+
+function showPrevCuadro() {
+    cuadroIndex = (cuadroIndex - 1 + cuadros.length) % cuadros.length;
+    mostrarCuadro();
+}
+
+function showNextCuadro() {
+    cuadroIndex = (cuadroIndex + 1) % cuadros.length;
+    mostrarCuadro();
+}
+
+function closeCuadrosLightbox() {
+    document.getElementById('cuadrosLightbox').style.display = 'none';
+    document.getElementById('cuadrosLightboxImg').src = '';
+    document.body.style.overflow = '';
+}
+
+// Eventos botones prev/next
+document.getElementById('cuadrosPrev').addEventListener('click', showPrevCuadro);
+document.getElementById('cuadrosNext').addEventListener('click', showNextCuadro);
+
+// Cerrar al hacer clic fuera
+document.getElementById('cuadrosLightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeCuadrosLightbox();
+});
+
+// Teclado
+document.addEventListener('keydown', (e) => {
+    if (document.getElementById('cuadrosLightbox').style.display === 'flex') {
+        if (e.key === 'ArrowLeft')  showPrevCuadro();
+        if (e.key === 'ArrowRight') showNextCuadro();
+        if (e.key === 'Escape')     closeCuadrosLightbox();
+    }
 });

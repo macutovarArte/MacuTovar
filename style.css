@@ -1000,3 +1000,15 @@
     .lightbox-prev { left: 0.5rem; }
     .lightbox-next { right: 0.5rem; }
 }
+
+.cuadros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Hover en prev/next del lightbox */
+#cuadrosPrev:hover,
+#cuadrosNext:hover {
+    color: var(--accent);
+}

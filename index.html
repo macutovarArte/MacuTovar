@@ -19,8 +19,9 @@
     <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#proyectos" onclick="closeMobileMenu()">Proyectos</a></li>
-        <li><a href="#retos" onclick="closeMobileMenuReto()">Retos</a></li> 
+        <li><a href="#proyectos" onclick="openMobileMenu()">Proyectos</a></li>
+        <li><a href="#retos" onclick="openMobileMenuReto()">Retos</a></li> 
+        <li><a href="#cuadros" onclick="openMobileMenuCuadros()" return false;>Cuadros</a></li>
         <li><a href="#contacto">Contacto</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menú">
@@ -30,11 +31,12 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-    <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
-    <a href="#sobre-mi" onclick="closeMobileMenu()">Sobre mí</a>
-    <a href="#proyectos" onclick="closeMobileMenu()">Proyectos</a>
-    <a href="#retos" onclick="closeMobileMenuReto()">Retos</a>  <!-- AÑADIDO -->
-    <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+    <a href="#inicio" onclick="openMobileMenu()">Inicio</a>
+    <a href="#sobre-mi" onclick="openMobileMenu()">Sobre mí</a>
+    <a href="#proyectos" onclick="openMobileMenu()">Proyectos</a>
+    <a href="#retos" onclick="openMobileMenuReto()">Retos</a>  <!-- AÑADIDO -->
+    <a href="#cuadros" onclick="openMobileMenuCuadros()" return false;>Cuadros</a>  <!-- AÑADIDO -->
+    <a href="#contacto" onclick="openMobileMenu()">Contacto</a>
 </div>
 
 <!-- HERO -->
@@ -406,12 +408,11 @@
     <div style="position:relative; width:90%; max-width:900px;">
         <button id="videoModalClose" style="position:absolute; top:-40px; right:0; background:none; border:none; color:white; font-size:2rem; cursor:pointer;">✕</button>
         <div style="position:relative; padding-bottom:56.25%; height:0;">
-            <iframe id="videoModalIframe"
-                style="position:absolute; top:0; left:0; width:100%; height:100%;"
-                frameborder="0"
-                allow="autoplay; fullscreen"
-                allowfullscreen>
-            </iframe>
+       <iframe id="videoModalIframe"
+            style="position:absolute; top:0; left:0; width:100%; height:100%;"
+            frameborder="0"
+            allow="autoplay; fullscreen">
+        </iframe>
         </div>
     </div>
 </div>
@@ -440,6 +441,33 @@
     <div style="margin-top:1rem; text-align:center;">
         <p id="retoLightboxTitulo" style="color:var(--light); font-size:1rem; margin:0;"></p>
         <p id="retoLightboxDimensiones" style="color:var(--muted); font-size:0.85rem; margin:4px 0 0;"></p>
+    </div>
+</div>
+
+<!-- CUADROS -->
+<section id="cuadros" class="section" style="display:none;">
+    <div class="container">
+        <h2 class="section-title">Cuadros</h2>
+        <div class="cuadros-grid">
+            <!-- Generado por JS -->
+        </div>
+    </div>
+</section>
+
+<!-- LIGHTBOX CUADROS (fuera de la section) -->
+<div id="cuadrosLightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; align-items:center; justify-content:center; flex-direction:column;">
+    <button onclick="closeCuadrosLightbox()" style="position:fixed; top:20px; right:24px; background:none; border:none; color:white; font-size:2rem; cursor:pointer; z-index:10000;">✕</button>
+    
+    <div style="display:flex; align-items:center; gap:1rem; max-width:95vw;">
+        <button id="cuadrosPrev" style="background:none; border:none; color:white; font-size:2.5rem; cursor:pointer; padding:0 1rem;">&#8249;</button>
+        <img id="cuadrosLightboxImg" src="" alt="" style="max-width:85vw; max-height:80vh; object-fit:contain; border-radius:6px; box-shadow:0 8px 40px rgba(0,0,0,0.5);">
+        <button id="cuadrosNext" style="background:none; border:none; color:white; font-size:2.5rem; cursor:pointer; padding:0 1rem;">&#8250;</button>
+    </div>
+
+    <div style="margin-top:1rem; text-align:center;">
+        <p id="cuadrosLightboxTitulo" style="color:var(--light); font-size:1rem; margin:0;"></p>
+        <p id="cuadrosLightboxDimensiones" style="color:var(--muted); font-size:0.85rem; margin:4px 0 0;"></p>
+        <p id="cuadrosLightboxCounter" style="color:var(--muted); font-size:0.8rem; margin:4px 0 0;"></p>
     </div>
 </div>
 
