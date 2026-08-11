@@ -225,7 +225,7 @@ const dias = [
     { dia: 7, titulo: 'Barco', dimensiones: '26 x 37 cm', img: 'imagenes/Reto/7.jpeg', tecnica: 'Acuarela sobre papel' },
     { dia: 8, titulo: null, dimensiones: null, img: null },
     { dia: 9, titulo: 'Faro de Faváritx', dimensiones: '37 x 26 cm', img: 'imagenes/Reto/9.jpeg', tecnica: 'Acuarela sobre papel' },
-    { dia: 10, titulo: null, dimensiones: null, img: null },
+    { dia: 10, titulo: '', dimensiones: '37 x 26 cm', img: 'imagenes/Reto/10.jpeg', tecnica: 'Acuarela sobre papel'  },
     { dia: 11, titulo: null, dimensiones: null, img: null },
     { dia: 12, titulo: null, dimensiones: null, img: null },
     { dia: 13, titulo: null, dimensiones: null, img: null },
