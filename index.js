@@ -9,6 +9,7 @@ const imageGroups = {
         "imagenes/Edificios/Cementerio.jpg",
         "imagenes/Edificios/ConcelloBueu.jpg", 
         "imagenes/Edificios/Pasanteria.jpeg", 
+        "imagenes/Edificios/PedroPorcel.jpeg",
 
 
     ],
@@ -226,9 +227,9 @@ const dias = [
     { dia: 8, titulo: null, dimensiones: null, img: null },
     { dia: 9, titulo: 'Faro de Faváritx', dimensiones: '37 x 26 cm', img: 'imagenes/Reto/9.jpeg', tecnica: 'Acuarela sobre papel' },
     { dia: 10, titulo: '', dimensiones: '37 x 26 cm', img: 'imagenes/Reto/10.jpeg', tecnica: 'Acuarela sobre papel'  },
-    { dia: 11, titulo: null, dimensiones: null, img: null },
-    { dia: 12, titulo: null, dimensiones: null, img: null },
-    { dia: 13, titulo: null, dimensiones: null, img: null },
+    { dia: 11, titulo: '', dimensiones: '27 x 27 cm', img: 'imagenes/Reto/11.jpeg', tecnica: 'Acuarela sobre papel'  },
+    { dia: 12, titulo: '', dimensiones: null, img: null },
+    { dia: 13, titulo: '', dimensiones: '25 x 25 cm', img: 'imagenes/Reto/13.jpeg', tecnica: 'Acuarela sobre papel'  },
     { dia: 14, titulo: null, dimensiones: null, img: null },
     { dia: 15, titulo: null, dimensiones: null, img: null },
     { dia: 16, titulo: null, dimensiones: null, img: null },
